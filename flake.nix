@@ -23,24 +23,44 @@
     ...
   }: {
     # Mac config with nix-darwin + home-manager
-    darwinConfigurations.macmini = nix-darwin.lib.darwinSystem {
-      system = "aarch64-darwin";
-      modules = [
-        home-manager.darwinModules.home-manager
-        ({pkgs, ...}: {
-          nix.package = pkgs.nixVersions.latest;
-          system.stateVersion = 6;
-          nixpkgs.overlays = [fenix.overlays.default];
-          users.users.pooralaska = {
-            home = "/Users/pooralaska";
-          };
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-          home-manager.users.pooralaska = {
-            imports = [./hosts/macmini.nix ./modules];
-          };
-        })
-      ];
+    darwinConfigurations = {
+      macmini = nix-darwin.lib.darwinSystem {
+        system = "aarch64-darwin";
+        modules = [
+          home-manager.darwinModules.home-manager
+          ({pkgs, ...}: {
+            nix.package = pkgs.nixVersions.latest;
+            system.stateVersion = 6;
+            nixpkgs.overlays = [fenix.overlays.default];
+            users.users.pooralaska = {
+              home = "/Users/pooralaska";
+            };
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.pooralaska = {
+              imports = [./hosts/macmini.nix ./modules];
+            };
+          })
+        ];
+      };
+      quera = nix-darwin.lib.darwinSystem {
+        system = "aarch64-darwin";
+        modules = [
+          home-manager.darwinModules.home-manager
+          ({pkgs, ...}: {
+            nix.package = pkgs.nixVersions.latest;
+            system.stateVersion = 6;
+            users.users.tahoeschrader = {
+              home = "/Users/tahoeschrader";
+            };
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.tahoeschrader = {
+              imports = [./hosts/quera.nix ./quera-modules];
+            };
+          })
+        ];
+      };
     };
 
     # TODO: add other machines... placeholder for standalone Home Manager config for the Turing Pi
