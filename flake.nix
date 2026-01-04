@@ -63,18 +63,40 @@
       };
     };
 
-    # TODO: add other machines... placeholder for standalone Home Manager config for the Turing Pi
-    homeConfigurations.turingpi = home-manager.lib.homeManagerConfiguration {
-      pkgs = import nixpkgs {
-        system = "aarch64-linux";
-        overlays = [fenix.overlays.default];
+    # Linux standalone Home Manager configs
+    homeConfigurations = {
+      turingpi = home-manager.lib.homeManagerConfiguration {
+        pkgs = import nixpkgs {
+          system = "aarch64-linux";
+          overlays = [fenix.overlays.default];
+        };
+        modules = [
+          ({pkgs, ...}: {
+            nix.package = pkgs.nixVersions.latest;
+            home.username = "tahoe";
+            home.homeDirectory = "/home/tahoe";
+          })
+          ./hosts/turingpi.nix
+          ./modules
+        ];
       };
-      modules = [
-        ./hosts/turingpi.nix
-        ./modules
-      ];
+      salaryman = home-manager.lib.homeManagerConfiguration {
+        pkgs = import nixpkgs {
+          system = "x86_64-linux";
+        };
+        modules = [
+          ({pkgs, ...}: {
+            nix.package = pkgs.nixVersions.latest;
+            home.username = "pooralaska";
+            home.homeDirectory = "/home/pooralaska";
+          })
+          ./hosts/salaryman.nix
+          ./quera-modules
+        ];
+      };
     };
     formatter.aarch64-darwin = nixpkgs.legacyPackages.aarch64-darwin.alejandra;
     formatter.aarch64-linux = nixpkgs.legacyPackages.aarch64-linux.alejandra;
+    formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.alejandra;
   };
 }
