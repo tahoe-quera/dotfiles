@@ -27,8 +27,6 @@
       ls = "eza --color=auto";
       cat = "bat";
       repos = "cd ~/Documents/repos; ls";
-      pip = "uv pip";
-      python = "uv python";
     };
     sessionPath = [
       "$HOME/.config/zsh"
