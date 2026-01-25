@@ -20,6 +20,7 @@
       awscli2
       yazi
       jfrog-cli
+      minicom
     ];
     shellAliases = {
       la = "eza -a --icons";
