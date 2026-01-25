@@ -2,3 +2,4 @@
 
 # Not sure why it's adding this in the first place
 .config/
+.idea/
