@@ -63,6 +63,16 @@
       sessionVariables = {
         VISUAL = "hx";
         PKG_CONFIG_PATH = "${pkgs.openssl.dev}/lib/pkgconfig";
+        KUBECONFIG = "$HOME/.kube/config:$HOME/.kube/tschrader.kubeconfig";
+        GITHUB_USER = "tahoe-quera";
+        GITHUB_TOKEN = "$(cat ~/.secrets/github-token)";
+        UV_INDEX_JFROG_PASSWORD = "$(cat ~/.secrets/jfrog-token)";
+        UV_INDEX_JFROG_USERNAME = "tschrader@quera.com";
+        UV_INDEX_JFROGALGO_PASSWORD = "$(cat ~/.secrets/jfrog-algo-token)";
+        UV_INDEX_JFROGALGO_USERNAME = "tschrader@quera.com";
+        UV_INDEX_KIRIN_PASSWORD = "$(cat ~/.secrets/jfrog-kirin-token)";
+        UV_INDEX_KIRIN_USERNAME = "tschrader@quera.com";
+        FLUX_SYSTEM = "$(cat ~/.secrets/flux-system)";
       };
     };
     programs = {
