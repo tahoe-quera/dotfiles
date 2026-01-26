@@ -31,7 +31,6 @@
         gradle
         scala
         sbt
-        uv
         texlive.combined.scheme-full
 
         # Misc. TUIs and CLIs
@@ -69,14 +68,35 @@
     programs = {
       git = {
         enable = true;
-        userEmail = "tahoeschrader@gmail.com";
-        userName = "Tahoe Schrader";
+        settings = {
+          user.email = "tahoeschrader@gmail.com";
+          user.name = "Tahoe Schrader";
+        };
+
+        includes = [
+          {
+            condition = "gitdir:~/Documents/projects/quera/";
+            contents = {
+              user = {
+                name = "Tahoe Schrader";
+                email = "tschrader@quera.com";
+              };
+            };
+          }
+        ];
       };
       ssh = {
         enable = true;
+        enableDefaultConfig = false;
         matchBlocks = {
           "github.com" = {
             identityFile = "~/.ssh/id_ed25519";
+            extraOptions = { IdentitiesOnly = "yes"; };
+          };
+          "github-quera" = {
+            hostname = "github.com";
+            user = "git";
+            identityFile = "~/.ssh/id_ed25519.github-quera";
             extraOptions = { IdentitiesOnly = "yes"; };
           };
           turingpi = {
@@ -107,8 +127,8 @@
             extraOptions = { IdentitiesOnly = "yes"; };
           };
           "*".extraOptions.UseKeychain = "yes";
+          "*".addKeysToAgent = "yes";
         };
-        addKeysToAgent = "yes";
       };
       helix = {
         enable = true;
@@ -153,12 +173,11 @@
           marksman
           gopls
           jdt-language-server
-          ansible-language-server
           terraform-ls
           nodePackages_latest.bash-language-server
           nodePackages_latest.typescript-language-server
           vscode-langservers-extracted
-          dockerfile-language-server-nodejs
+          dockerfile-language-server
           bibtex-tidy
           docker-compose-language-service
         ];
@@ -197,11 +216,31 @@
       };
       go = {
         enable = true;
-        goPath = ".go";
+        env.GOPATH = ".go";
       };
       direnv = {
         enable = true;
         nix-direnv.enable = true;
+      };
+      # Should I change this to extraIndex? Does that exist?
+      uv = {
+        enable = true;
+        settings = {
+          index = [
+            {
+              name = "JFROG";
+              url = "https://quera.jfrog.io/artifactory/api/pypi/Development/simple";
+            }
+            {
+              name = "JFROGALGO";
+              url = "https://quera.jfrog.io/artifactory/api/pypi/quera-pypi-algo/simple";
+            }
+            {
+              name = "KIRIN";
+              url = "https://quera.jfrog.io/artifactory/api/pypi/kirin/simple";
+            }
+          ];
+        };
       };
     };
   };
