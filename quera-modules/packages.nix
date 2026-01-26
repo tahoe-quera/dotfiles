@@ -2,54 +2,58 @@
   fonts.fontconfig.enable = true;
   home = {
     packages = with pkgs; [
-      # System, fonts, etc.
-      nerd-fonts.fira-code
-      nerd-fonts.hack
+        # System, fonts, etc.
+        nerd-fonts.fira-code
+        nerd-fonts.hack
 
-      # Misc. TUIs and CLIs
-      tree
-      eza
-      bat
-      k9s
-      kubectl
-      talosctl
-      fluxcd
-      graphviz
-      lazygit
-      lazydocker
-      awscli2
-      yazi
-      jfrog-cli
-      minicom
-    ];
-    shellAliases = {
-      la = "eza -a --icons";
-      ll = "eza -lah --icons";
-      ls = "eza --color=auto";
-      cat = "bat";
-      repos = "cd ~/Documents/repos; ls";
-    };
-    sessionPath = [
-      "$HOME/.config/zsh"
-      "$HOME/.local/bin"
-    ];
-    sessionVariables = {
-      VISUAL = "hx";
-      PATH = "${pkgs.graphviz}/bin:$PATH";
-      PKG_CONFIG_PATH = "${pkgs.graphviz}/lib/pkgconfig:$PKG_CONFIG_PATH";
-      C_INCLUDE_PATH = "${pkgs.graphviz}/include:$C_INCLUDE_PATH";
-      LIBRARY_PATH = "${pkgs.graphviz}/lib:$LIBRARY_PATH";
-      KUBECONFIG = "$HOME/.kube/config:$HOME/.kube/tschrader.kubeconfig";
-      GITHUB_USER = "tahoe-quera";
-      GITHUB_TOKEN = "$(cat ~/.secrets/github-token)";
-      UV_INDEX_JFROG_PASSWORD = "$(cat ~/.secrets/jfrog-token)";
-      UV_INDEX_JFROG_USERNAME = "tschrader@quera.com";
-      UV_INDEX_JFROGALGO_PASSWORD = "$(cat ~/.secrets/jfrog-algo-token)";
-      UV_INDEX_JFROGALGO_USERNAME = "tschrader@quera.com";
-      UV_INDEX_KIRIN_PASSWORD = "$(cat ~/.secrets/jfrog-kirin-token)";
-      UV_INDEX_KIRIN_USERNAME = "tschrader@quera.com";
-    };
+        # Misc. TUIs and CLIs
+        tree
+        eza
+        bat
+        k9s
+        kubectl
+        talosctl
+        fluxcd
+        graphviz
+        lazygit
+        lazydocker
+        awscli2
+        yazi
+        jfrog-cli
+        minicom
+        yq-go
+        jsonnet
+        delta
+  ];
+  shellAliases = {
+    la = "eza -a --icons";
+    ll = "eza -lah --icons";
+    ls = "eza --color=auto";
+    cat = "bat";
+    repos = "cd ~/Documents/repos; ls";
   };
+  sessionPath = [
+    "$HOME/.config/zsh"
+    "$HOME/.local/bin"
+  ];
+  sessionVariables = {
+    VISUAL = "hx";
+    PATH = "${pkgs.graphviz}/bin:$PATH";
+    PKG_CONFIG_PATH = "${pkgs.graphviz}/lib/pkgconfig:$PKG_CONFIG_PATH";
+    C_INCLUDE_PATH = "${pkgs.graphviz}/include:$C_INCLUDE_PATH";
+    LIBRARY_PATH = "${pkgs.graphviz}/lib:$LIBRARY_PATH";
+    KUBECONFIG = "$HOME/.kube/config:$HOME/.kube/tschrader.kubeconfig";
+    GITHUB_USER = "tahoe-quera";
+    GITHUB_TOKEN = "$(cat ~/.secrets/github-token)";
+    UV_INDEX_JFROG_PASSWORD = "$(cat ~/.secrets/jfrog-token)";
+    UV_INDEX_JFROG_USERNAME = "tschrader@quera.com";
+    UV_INDEX_JFROGALGO_PASSWORD = "$(cat ~/.secrets/jfrog-algo-token)";
+    UV_INDEX_JFROGALGO_USERNAME = "tschrader@quera.com";
+    UV_INDEX_KIRIN_PASSWORD = "$(cat ~/.secrets/jfrog-kirin-token)";
+    UV_INDEX_KIRIN_USERNAME = "tschrader@quera.com";
+    FLUX_SYSTEM = "$(cat ~/.secrets/flux-system)";
+  };
+};
   programs = {
     git = {
       enable = true;
