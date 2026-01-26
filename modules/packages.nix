@@ -91,7 +91,7 @@
         matchBlocks = {
           "github.com" = {
             identityFile = "~/.ssh/id_ed25519";
-            extraOptions = { IdentitiesOnly = "yes"; };
+            extraOptions = {IdentitiesOnly = "yes";};
           };
           "github-quera" = {
             hostname = "github.com";
@@ -102,29 +102,29 @@
           turingpi = {
             user = "tahoe";
             identityFile = "~/.ssh/id_ed25519.tpi2";
-            extraOptions = { IdentitiesOnly = "yes"; };
+            extraOptions = {IdentitiesOnly = "yes";};
           };
           turingpi-root = {
             hostname = "turingpi";
             user = "root";
             identityFile = "~/.ssh/id_ed25519.tpi2.root";
-            extraOptions = { IdentitiesOnly = "yes"; };
+            extraOptions = {IdentitiesOnly = "yes";};
           };
           raspberry = {
             user = "raspberrypi";
             identityFile = "~/.ssh/id_ed25519.rpi";
-            extraOptions = { IdentitiesOnly = "yes"; };
+            extraOptions = {IdentitiesOnly = "yes";};
           };
           raspberrypi-2 = {
             user = "tahoe";
             identityFile = "~/.ssh/id_ed25519.rpi-2";
-            extraOptions = { IdentitiesOnly = "yes"; };
+            extraOptions = {IdentitiesOnly = "yes";};
           };
           fushigi-vultr = {
             hostname = "167.179.90.92";
             user = "root";
             identityFile = "~/.ssh/id_ed25519.fushigi-vultr";
-            extraOptions = { IdentitiesOnly = "yes"; };
+            extraOptions = {IdentitiesOnly = "yes";};
           };
           "*".extraOptions.UseKeychain = "yes";
           "*".addKeysToAgent = "yes";

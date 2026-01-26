@@ -21,6 +21,9 @@
       yazi
       jfrog-cli
       minicom
+      yq-go
+      jsonnet
+      delta
     ];
     shellAliases = {
       la = "eza -a --icons";
@@ -48,6 +51,7 @@
       UV_INDEX_JFROGALGO_USERNAME = "tschrader@quera.com";
       UV_INDEX_KIRIN_PASSWORD = "$(cat ~/.secrets/jfrog-kirin-token)";
       UV_INDEX_KIRIN_USERNAME = "tschrader@quera.com";
+      FLUX_SYSTEM = "$(cat ~/.secrets/flux-system)";
     };
   };
   programs = {

@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   home = {
     shellAliases = {
       salaryman = "home-manager switch --flake ~/Documents/repos/dotfiles#salaryman; echo Remember to close and reopen shell!\n";
@@ -104,7 +103,7 @@
           {
             type = "disk";
             key = "Disk";
-            folders = [ "/" ];
+            folders = ["/"];
           }
           {
             type = "display";
