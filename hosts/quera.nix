@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   home = {
     shellAliases = {
       quera = "sudo darwin-rebuild switch --flake ~/Documents/repos/dotfiles#quera; echo Remember to close and reopen shell!\n";
