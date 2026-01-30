@@ -90,8 +90,22 @@
             home.username = "pooralaska";
             home.homeDirectory = "/home/pooralaska";
           })
-          ./hosts/salaryman.nix
+          ./hosts/control.nix
           ./quera-modules
+        ];
+      };
+      thinkcentre = home-manager.lib.homeManagerConfiguration {
+        pkgs = import nixpkgs {
+          system = "x86_64-linux";
+        };
+        modules = [
+          ({pkgs, ...}: {
+            nix.package = pkgs.nixVersions.latest;
+            home.username = "pooralaska";
+            home.homeDirectory = "/home/pooralaska";
+          })
+          ./hosts/thinkcentre.nix
+          ./control-modules
         ];
       };
     };
