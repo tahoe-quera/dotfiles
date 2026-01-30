@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   home = {
     shellAliases = {
-      thinkcentre = "home-manager switch --flake ~/Documents/repos/dotfiles#salaryman; echo Remember to close and reopen shell!\n";
+      thinkcentre = "home-manager switch --flake ~/Documents/repos/dotfiles#thinkcentre; echo Remember to close and reopen shell!\n";
       checkhooks = "pre-commit run --hook-stage manual --all-files";
     };
     packages = with pkgs; [

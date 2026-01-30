@@ -90,7 +90,7 @@
             home.username = "pooralaska";
             home.homeDirectory = "/home/pooralaska";
           })
-          ./hosts/control.nix
+          ./hosts/salaryman.nix
           ./quera-modules
         ];
       };
