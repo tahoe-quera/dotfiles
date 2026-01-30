@@ -1,5 +1,5 @@
 {
-  imports = [./packages.nix ./ssh.nix];
+  imports = [./packages.nix ./ssh.nix ./k9s.nix];
   home.stateVersion = "23.11";
   programs.home-manager.enable = true;
   nix.settings.experimental-features = ["nix-command" "flakes"];

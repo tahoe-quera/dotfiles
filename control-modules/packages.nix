@@ -10,7 +10,6 @@
       tree
       eza
       bat
-      k9s
       kubectl
       talosctl
       fluxcd
@@ -38,9 +37,6 @@
     sessionVariables = {
       VISUAL = "hx";
       KUBECONFIG = "$HOME/.kube/config";
-      GITHUB_USER = "tahoeschrader";
-      GITHUB_TOKEN = "$(cat ~/.secrets/github-token)";
-      FLUX_SYSTEM = "$(cat ~/.secrets/flux-system)";
     };
   };
   programs = {
