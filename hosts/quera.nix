@@ -3,6 +3,7 @@
     shellAliases = {
       quera = "sudo darwin-rebuild switch --flake ~/src/dotfiles#quera; echo Remember to close and reopen shell!\n";
       checkhooks = "pre-commit run --hook-stage manual --all-files";
+      tunnels = "bash ~/src/dotfiles/scripts/tunnels.sh";
     };
     sessionPath = [
       "$HOME/Library/Application\\ Support/JetBrains/Toolbox/scripts"

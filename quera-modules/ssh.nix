@@ -4,6 +4,7 @@
     enableDefaultConfig = false;
     includes = [
       "~/src/q/share/ssh/config"
+      "~/.ssh/config.local"
     ];
     matchBlocks = {
       "github.com" = {
