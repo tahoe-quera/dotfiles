@@ -50,6 +50,7 @@
           ({pkgs, ...}: {
             nix.package = pkgs.nixVersions.latest;
             system.stateVersion = 6;
+            nixpkgs.overlays = [fenix.overlays.default];
             users.users.tahoeschrader = {
               home = "/Users/tahoeschrader";
             };
