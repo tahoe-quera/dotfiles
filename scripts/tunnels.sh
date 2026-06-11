@@ -1,10 +1,10 @@
 #!/bin/bash
 
-_start() { ssh -fN "$1-supervisor"; }
+_start() { ssh -fN "$1"; }
 
 _stop() {
   for t in qtrl telem sorting holo; do
-    pkill -f "ssh -fN $t-supervisor" 2>/dev/null || true
+    pkill -f "ssh -fN $t" 2>/dev/null || true
   done
 }
 
