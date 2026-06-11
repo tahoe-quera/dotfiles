@@ -233,5 +233,15 @@
         };
       };
     };
+    zellij = {
+      enable = true;
+      exitShellOnExit = false;
+
+      settings = {
+        default_shell = "zsh";
+        mouse_mode = true;
+        pane_frames = true;
+      };
+    };
   };
 }
