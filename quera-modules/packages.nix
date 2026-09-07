@@ -31,6 +31,8 @@
       delta
       sops
       age
+      dialog
+      gh
     ];
     shellAliases = {
       la = "eza -a --icons";
